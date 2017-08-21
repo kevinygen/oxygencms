@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>Oxygen Example</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src='../../oxygen-client-browser.js'></script>
+    <script>
+        var oxygen = Oxygen('3e061811-7847-44eb-ac81-20a1cada1194', '96015cd5-371b-44e5-8bd0-5733a69ed0f6');
+
+        oxygen.content.get('dfe9cca7-e2f0-45ee-885c-3c435b211223')
+            .then(function (response) {
+                $('#header-title').text(response.data.Name);
+                $('#header-text').text(response.data.Fields['Content']);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    </script>
+</head>
+
+<body>
+    <div>
+        <h2 id='header-title'></h2>
+        <p id='header-text'></p>
+    </div>
+</body>
+
+</html>
